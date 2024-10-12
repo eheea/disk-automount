@@ -24,6 +24,7 @@ else  echo "mount point already exists"
 fi
 
 if ! grep -q "$UUID" /etc/fstab; then
+echo "                                                          "
 echo UUID="$UUID"  "$mount"  "$fs"  defaults  0  0 >> /etc/fstab
 sudo systemctl daemon-reload
 sudo mount UUID="$UUID"
