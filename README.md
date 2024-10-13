@@ -1,5 +1,5 @@
 # linux-disk-automount-script
-a script to automate disk mounting on linux
+a script to automate disk mounting and unmounting on linux (note that there are 2 scrripts to do so)
 
 how to use
 
