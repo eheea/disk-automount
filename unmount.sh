@@ -1,7 +1,7 @@
 #!/bin/bash
 lsblk -o NAME,SIZE,TYPE,MOUNTPOINT,UUID
 echo "                   "
-echo "insert the UUID of the disk you want to unmount"
+echo -e "\033[32minsert the UUID of the disk you want to unmount\033[0m"
 read -r ID
 umount UUID="$ID"
 if [ $? -eq 0 ]; then
