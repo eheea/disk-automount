@@ -25,6 +25,8 @@ echo "                                 "
 echo "insert filesystem type"
 read -r fs
 
+sudo umount UUID=$UUID
+
 if [ ! -d "$mount" ]; then
 mkdir -p "$mount"
 echo "mount point has been created at $mount"
