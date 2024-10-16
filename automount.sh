@@ -7,7 +7,7 @@ echo "2) unmount"
 read -r answer
 case $answer in
 1)
-echo "          "
+clear
 lsblk -o NAME,SIZE,TYPE,MOUNTPOINT,UUID
 echo "                                 "
 
@@ -47,7 +47,7 @@ else echo "disk is already mounted"
 fi ;;
 
 2)
-echo "             "
+clear
 lsblk -o NAME,SIZE,TYPE,MOUNTPOINT,UUID
 echo "                   "
 echo -e "\033[32minsert the UUID of the disk you want to unmount\033[0m"
