@@ -1,6 +1,11 @@
 #!/bin/bash
-echo "                     "
-echo -e "\033[32mplease run this script as root, you can switch to root using sudo su\033[0m"
+
+if [ "$(id -u)" -ne 0 ]; then
+echo -e "\033[32mplease switch to the root user using 'sudo su' command and try again\033[0m"
+exit 3
+fi
+
+clear
 echo "do you want to mount a disk or unmount it"
 echo "1) mount"
 echo "2) unmount"
@@ -25,7 +30,7 @@ echo "                                 "
 echo "insert filesystem type"
 read -r fs
 
-sudo umount UUID=$UUID
+sudo umount UUID="$UUID"
 
 if [ ! -d "$mount" ]; then
 mkdir -p "$mount"
@@ -55,7 +60,7 @@ read -r ID
 umount UUID="$ID"
 if [ $? -eq 0 ]; then
 echo "disk successfully unmounted"
-else echo "the disk is busy. log out or restart the computer and try again"
+else echo "if the disk didnt unmount correctly after this script please close all apps using the disk or restart your pc and try again"
 fi
 sed -i "/$ID/g" /etc/fstab
 systemctl daemon-reload ;;
