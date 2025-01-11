@@ -16,18 +16,18 @@ clear
 lsblk -o NAME,SIZE,TYPE,MOUNTPOINT,UUID
 echo "                                 "
 
-echo "insert disk UUID"
+echo "insert disk UUID (the IDs on the right of the disk)"
 read -r UUID
 
 echo "                                 "
 
-echo "insert mount point"
+echo "insert mount point (what folder you want the disk to be stored in. eg.. /home/eheea/HDD)"
 read -r mount
 
 echo "                                 "
 
 
-echo "insert filesystem type"
+echo "insert filesystem type (eg..ntfs,ext4,btrfs)"
 read -r fs
 
 sudo umount UUID="$UUID"
